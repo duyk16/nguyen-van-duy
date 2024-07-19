@@ -1,0 +1,34 @@
+{
+  "extends": ["airbnb-base", "airbnb-typescript/base", "prettier"],
+  "plugins": ["prettier"],
+  "parserOptions": {
+    "ecmaVersion": 2018
+  },
+  "rules": {
+    "no-console": "error",
+    "func-names": "off",
+    "no-underscore-dangle": "off",
+    "consistent-return": "off",
+    "security/detect-object-injection": "off",
+    "dot-notation": "off",
+  },
+  "overrides": [
+    {
+      "files": ["src/**/*.ts"],
+      "extends": ["airbnb-base", "airbnb-typescript/base", "prettier"],
+      "plugins": ["@typescript-eslint", "prettier"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "ecmaVersion": 2018,
+        "project": ["./tsconfig.json"]
+      },
+      "rules": {
+        "no-console": "error",
+        "func-names": "off",
+        "no-underscore-dangle": "off",
+        "consistent-return": "off"
+  
+      }
+    }
+  ]
+}
