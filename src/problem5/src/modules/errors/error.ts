@@ -16,7 +16,8 @@ export const errorConverter = (err: any, req: Request, res: Response, next: Next
   next(error);
 };
 
-export const errorHandler = (err: ApiError, req: Request, res: Response) => {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export const errorHandler = (err: ApiError, req: Request, res: Response, next: NextFunction) => {
   let { statusCode, message } = err;
   if (config.env === 'production' && !err.isOperational) {
     statusCode = httpStatus.INTERNAL_SERVER_ERROR;

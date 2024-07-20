@@ -1,11 +1,18 @@
 {
-  "extends": ["airbnb-base", "airbnb-typescript/base", "prettier"],
-  "plugins": ["prettier"],
+  "extends": ["airbnb-base", "airbnb-typescript/base", "prettier", "plugin:import/recommended"],
+  "plugins": ["prettier", "import"],
   "parserOptions": {
-    "ecmaVersion": 2018
+    "ecmaVersion": 2018,
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": ["src"],
+      },
+    },
   },
   "rules": {
-    "no-console": "error",
+    "no-console": ["error", { "allow": ["warn", "error", "debug"] }],
     "func-names": "off",
     "no-underscore-dangle": "off",
     "consistent-return": "off",
@@ -20,15 +27,15 @@
       "parser": "@typescript-eslint/parser",
       "parserOptions": {
         "ecmaVersion": 2018,
-        "project": ["./tsconfig.json"]
+        "project": ["./tsconfig.json"],
       },
       "rules": {
         "no-console": "error",
         "func-names": "off",
         "no-underscore-dangle": "off",
-        "consistent-return": "off"
-  
-      }
-    }
-  ]
+        "consistent-return": "off",
+        "import/prefer-default-export": "off",
+      },
+    },
+  ],
 }
